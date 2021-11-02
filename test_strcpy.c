@@ -1,0 +1,48 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_strcpy.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/02 17:49:12 by itkimura          #+#    #+#             */
+/*   Updated: 2021/11/02 18:31:50 by itkimura         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "test.h"
+
+void	check_strcpy(void)
+{
+	char s1[13] = "Hello World!";
+	char d1[13] = "Hive Helsink";
+	char s2[13] = "Hello World!";
+	char d2[13] = "Hive Helsink";
+
+	ft_putstr("\n==========strcpy test===========\n");
+	ft_putstr("d1\t\t= ");
+	ft_putstr(d1);
+	ft_putstr("\nstrcpy\t\t= ");
+	strcpy(d1, s1);
+	ft_putstr(d1);
+	ft_putstr("\nd2\t\t= ");
+	ft_putstr(d2);
+	ft_strcpy(d2, s2);
+	ft_putstr("\nft_strcpy\t= ");
+	ft_putstr(d2);
+	ft_putstr("\n================================\n");
+	print_result("strcpy", test_strcpy());
+}
+
+int		test_strcpy(void)
+{
+	char s1[13] = "Hello World!";
+	char d1[13] = "Hive Helsink";
+	char s2[13] = "Hello World!";
+	char d2[13] = "Hive Helsink";
+
+	if (!(strcmp(strcpy(d1, s1), ft_strcpy(d2, s2))))
+		return (0);
+	else
+		return (1);
+}
