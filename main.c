@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 20:20:33 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/02 18:05:53 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/03 18:38:13 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,32 +30,47 @@ void	print_result(char *f_name, int result)
 
 void	s_funstions(char *f_name)
 {
-	if (!(ft_strcmp(f_name, "strlen")))
-		check_strlen();
-	if (!(ft_strcmp(f_name, "strcmp")))
-		check_strcmp();
-	if (!(ft_strcmp(f_name, "strncmp")))
-		check_strncmp();
-	if (!(ft_strcmp(f_name, "strdup")))
-		check_strdup();
-	if (!(ft_strcmp(f_name, "strcpy")))
-		check_strcpy();
+	if (!(strcmp(f_name, "strlen")))
+		strlen_check();
+	if (!(strcmp(f_name, "strstr")))
+		strstr_check();
+	if (!(strcmp(f_name, "strcpy")))
+		strcpy_check();
+	if (!(strcmp(f_name, "strncpy")))
+		strncpy_check();
+	if (!(strcmp(f_name, "strcat")))
+		strcat_check();
+	if (!(strcmp(f_name, "strncat")))
+		strncat_check();
+	if (!(strcmp(f_name, "strnstr")))
+		strnstr_check();
+	if (!(strcmp(f_name, "strcmp")))
+		strcmp_check();
+	if (!(strcmp(f_name, "strncmp")))
+		strncmp_check();
+	if (!(strcmp(f_name, "strdup")))
+		strdup_check();
 }
 
 void	a_funstions(char *f_name)
 {
-	if (!(ft_strcmp(f_name, "atoi")))
-			check_atoi();
+	if (!(strcmp(f_name, "atoi")))
+			atoi_check();
 }
  
 void	test_all(void)
 {
-	print_result("strlen", test_strlen());
-	print_result("strdup", test_strdup());
-	print_result("strcpy", test_strcpy());
-	print_result("strdup", test_strcmp());
-	print_result("strncmp", test_strncmp());
-	print_result("atoi", test_atoi());
+	print_result("strlen", strlen_test());
+	print_result("strdup", strdup_test());
+	print_result("strcpy", strcpy_test());
+	print_result("strncpy", strncpy_test());
+	print_result("strcat", strcat_test());
+	print_result("strncat", strncat_test());
+	print_result("strcmp", strcmp_test());
+	print_result("strstr", strstr_test());
+	print_result("strnstr", strstr_test());
+	print_result("strncmp", strncmp_test());
+	print_result("atoi", atoi_test());
 }
 
 int	main(int argc, char **argv)
