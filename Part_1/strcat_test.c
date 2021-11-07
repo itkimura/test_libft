@@ -6,20 +6,20 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 17:24:17 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/03 17:58:22 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/07 17:48:01 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test.h"
 void	strcat_check(void)
 {
-	char s1[14] = "Hive ";
+	char s1[20] = "Hive ";
 	char s2[] = "Helsinki";
-	char s3[13] = "Hello ";
+	char s3[20] = "Hello ";
 	char s4[] = "World!";
-	char s5[14] = "Hive ";
+	char s5[20] = "Hive ";
 	char s6[] = "Helsinki";
-	char s7[13] = "Hello ";
+	char s7[20] = "Hello ";
 	char s8[] = "World!";
 
 	ft_putstr("\n==========strcat test===========\n");
@@ -45,13 +45,13 @@ void	strcat_check(void)
 
 int		strcat_test(void)
 {
-	char s1[14] = "Hive ";
+	char s1[20] = "Hive ";
 	char s2[] = "Helsinki";
-	char s3[13] = "Hello ";
+	char s3[20] = "Hello ";
 	char s4[] = "World!";
-	char s5[14] = "Hive ";
+	char s5[20] = "Hive ";
 	char s6[] = "Helsinki";
-	char s7[13] = "Hello ";
+	char s7[20] = "Hello ";
 	char s8[] = "World!";
 
 	if (!strcmp(strcat(s1, s2), ft_strcat(s5, s6)) &&
