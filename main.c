@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 20:20:33 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/03 18:38:13 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/08 17:21:23 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,49 @@
 
 void	print_result(char *f_name, int result)
 {
-	if (result == 0)
+	ft_putstr("ft_");
+	ft_putstr(f_name);
+	if (result)
 	{
-		ft_putstr("ft_");
-		ft_putstr(f_name);
-		ft_putstr(":OK!\n");
+		if(strlen(f_name) < 5 )
+			ft_putstr("\t\t:OK!\n");
+		else
+			ft_putstr("\t:OK!\n");
 	}
 	else
 	{
 		ft_putstr("ft_");
 		ft_putstr(f_name);
-		ft_putstr(":Error!\n");
+		ft_putstr("\t:Error!\n");
 	}
+}
+
+void	a_funstions(char *f_name)
+{
+	if (!(strcmp(f_name, "atoi")))
+			atoi_check();
+}
+
+void	i_funstions(char *f_name)
+{
+	if (!(strcmp(f_name, "isalpha")))
+			isalpha_check();
+	if (!(strcmp(f_name, "isdigit")))
+			isdigit_check();
+	if (!(strcmp(f_name, "isalnum")))
+			isalnum_check();
+	if (!(strcmp(f_name, "isascii")))
+			isascii_check();
+	if (!(strcmp(f_name, "isprint")))
+			isprint_check();
 }
 
 void	s_funstions(char *f_name)
 {
 	if (!(strcmp(f_name, "strlen")))
 		strlen_check();
-	if (!(strcmp(f_name, "strstr")))
-		strstr_check();
+	if (!(strcmp(f_name, "strdup")))
+		strdup_check();
 	if (!(strcmp(f_name, "strcpy")))
 		strcpy_check();
 	if (!(strcmp(f_name, "strncpy")))
@@ -42,22 +65,22 @@ void	s_funstions(char *f_name)
 		strcat_check();
 	if (!(strcmp(f_name, "strncat")))
 		strncat_check();
+	if (!(strcmp(f_name, "strlcat")))
+		strlcat_check();
+	if (!(strcmp(f_name, "strchr")))
+		strchr_check();
+	if (!(strcmp(f_name, "strrchr")))
+		strrchr_check();
+	if (!(strcmp(f_name, "strstr")))
+		strstr_check();
 	if (!(strcmp(f_name, "strnstr")))
 		strnstr_check();
 	if (!(strcmp(f_name, "strcmp")))
 		strcmp_check();
 	if (!(strcmp(f_name, "strncmp")))
 		strncmp_check();
-	if (!(strcmp(f_name, "strdup")))
-		strdup_check();
 }
 
-void	a_funstions(char *f_name)
-{
-	if (!(strcmp(f_name, "atoi")))
-			atoi_check();
-}
- 
 void	test_all(void)
 {
 	print_result("strlen", strlen_test());
@@ -66,11 +89,29 @@ void	test_all(void)
 	print_result("strncpy", strncpy_test());
 	print_result("strcat", strcat_test());
 	print_result("strncat", strncat_test());
+	print_result("strlcat", strlcat_test());
+	print_result("strchr", strchr_test());
+	print_result("strrchr", strrchr_test());
 	print_result("strcmp", strcmp_test());
 	print_result("strstr", strstr_test());
 	print_result("strnstr", strstr_test());
 	print_result("strncmp", strncmp_test());
 	print_result("atoi", atoi_test());
+	print_result("isalpha", isalpha_test());
+	print_result("isdigit", isdigit_test());
+	print_result("isalnum", isdigit_test());
+	print_result("isascii", isdigit_test());
+	print_result("isprint", isdigit_test());
+	print_result("toupper", isdigit_test());
+	print_result("tolower", isdigit_test());
+}
+
+void	t_funstions(char *f_name)
+{
+	if (!(strcmp(f_name, "toupper")))
+			toupper_check();
+	if (!(strcmp(f_name, "tolower")))
+			tolower_check();
 }
 
 int	main(int argc, char **argv)
@@ -86,10 +127,14 @@ int	main(int argc, char **argv)
 			test_all();
 		while (i < argc)
 		{
-			if (*argv[i] == 's')
-				s_funstions(argv[i]);
 			if (*argv[i] == 'a')
 				a_funstions(argv[i]);
+			if (*argv[i] == 'i')
+				i_funstions(argv[i]);
+			if (*argv[i] == 's')
+				s_funstions(argv[i]);
+			if (*argv[i] == 't')
+				t_funstions(argv[i]);
 			i++;
 		}
 	}

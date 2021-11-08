@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:49:12 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/03 14:18:38 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/08 15:12:09 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int		strncpy_test(void)
 	char d2[13] = "Hive Helsink";
 
 	if (!(strcmp(strncpy(d1, s1, 6), ft_strncpy(d2, s2, 6))))
-		return (0);
-	else
 		return (1);
+	else
+		return (0);
 }

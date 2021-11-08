@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 17:24:17 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/07 17:48:01 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/08 14:49:19 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int		strcat_test(void)
 
 	if (!strcmp(strcat(s1, s2), ft_strcat(s5, s6)) &&
 		!strcmp(strcat(s3, s4), ft_strcat(s7, s8)))
-		return (0);
-	else
 		return (1);
+	else
+		return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:39:32 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/03 13:42:48 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/08 15:11:40 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int		strcmp_test(void)
 	if (strcmp(s1, s2) == ft_strcmp(s1, s2) &&
 		strcmp(s3, s4) == ft_strcmp(s3, s4) &&
 		strcmp(s5, s6) == ft_strcmp(s5, s6))
-	 	return (0);
+	 	return (1);
 	else
-		return (1);
+		return (0);
 }

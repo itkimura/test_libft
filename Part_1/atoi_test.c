@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 15:21:40 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/03 13:41:52 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/08 14:49:03 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	atoi_test(void)
 		atoi(s4) == ft_atoi(s4) &&
 		atoi(s5) == ft_atoi(s5) &&
 		atoi(s6) == ft_atoi(s6))
-		return (0);
-	else
 		return (1);
+	else
+		return (0);
 }

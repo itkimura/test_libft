@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:29:44 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/03 15:11:07 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/08 15:12:59 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		strstr_test(void)
 
 	if (!(strcmp(strstr(s1, s2), ft_strstr(s1, s2))) &&
 		!strstr(s3, s2) && !ft_strstr(s3, s2))
-		return (0);
-	else
 		return (1);
+	else
+		return (0);
 }

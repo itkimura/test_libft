@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:21:01 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/03 13:52:58 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/08 15:08:41 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	strdup_test(void)
 	const char *s2 = "Hello World!";
 
 	if(!(strcmp(strdup(s1), ft_strdup(s1))) && !(strcmp(strdup(s2), ft_strdup(s2))))
-		return (0);
-	else
 		return (1);
+	else
+		return (0);
 }
