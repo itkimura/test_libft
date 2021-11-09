@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 20:20:33 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/08 17:21:23 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/09 11:24:47 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,15 @@ void	s_funstions(char *f_name)
 		strncmp_check();
 }
 
+void	m_funstions(char *f_name)
+{
+	if (!(strcmp(f_name, "memset")))
+			memset_check();
+}
+
 void	test_all(void)
 {
+	print_result("memset", memset_test());
 	print_result("strlen", strlen_test());
 	print_result("strdup", strdup_test());
 	print_result("strcpy", strcpy_test());
