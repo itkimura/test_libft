@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:29:44 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/09 11:13:38 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/10 16:56:33 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,22 @@ void	strstr_check(void)
 	const char	s3[] = "Hello World!";
 
 	ft_putstr("\n==========strstr test===========\n");
-	ft_putstr("s1 = ");
+	ft_putstr("s1\t\t= ");
 	ft_putstr((char *)s1);
-	ft_putstr("\ns2 = ");
+	ft_putstr("\ns2\t\t= ");
 	ft_putstr((char *)s2);
-	ft_putstr("\nstrstr = ");
+	ft_putstr("\nstrstr\t\t= ");
 	ft_putstr(strstr(s1, s2));
-	ft_putstr("\nft_strstr = ");
+	ft_putstr("\nft_strstr\t= ");
 	ft_putstr(ft_strstr(s1, s2));
-	ft_putstr("\ns3 = ");
+	ft_putstr("\ns3\t\t= ");
 	ft_putstr((char *)s3);
-	ft_putstr("\ns2 = ");
+	ft_putstr("\ns2\t\t= ");
 	ft_putstr((char *)s2);
-	ft_putstr("\nstrstr = ");
+	ft_putstr("\nstrstr\t\t= ");
 	if (!strstr(s3, s2))
 		ft_putstr("(null)");
-	ft_putstr("\nft_strstr = ");
+	ft_putstr("\nft_strstr\t= ");
 	if (!ft_strstr(s3, s2))
 		ft_putstr("(null)");
 	ft_putstr("\n================================\n");

@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 11:31:38 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/08 15:08:57 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/10 16:50:21 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,21 @@ void	strlcat_check(void)
 	char s8[] = "World!";
 
 	ft_putstr("\n==========strlcat test===========\n");
-	ft_putstr("s1 = ");
+	ft_putstr("s1\t\t= ");
 	ft_putstr(s1);
-	ft_putstr("\ns2 = ");
+	ft_putstr("\ns2\t\t= ");
 	ft_putstr(s2);
-	ft_putstr("\nstrlcat = ");
+	ft_putstr("\nstrlcat\t\t= ");
 	ft_putnbr(strlcat(s1, s2, 10));
-	ft_putstr("\nft_strlcat = ");
+	ft_putstr("\nft_strlcat\t= ");
 	ft_putnbr(ft_strlcat(s5, s6, 10));
-	ft_putstr("\ns3 = ");
+	ft_putstr("\ns3\t\t= ");
 	ft_putstr(s3);
-	ft_putstr("\ns4 = ");
+	ft_putstr("\ns4\t\t= ");
 	ft_putstr(s4);
-	ft_putstr("\nstrlcat = ");
+	ft_putstr("\nstrlcat\t\t= ");
 	ft_putnbr(strlcat(s3, s4, 20));
-	ft_putstr("\nft_strlcat = ");
+	ft_putstr("\nft_strlcat\t= ");
 	ft_putnbr(ft_strlcat(s7, s8, 20));
 	ft_putstr("\n================================\n");
 	print_result("strlcat", strlcat_test());

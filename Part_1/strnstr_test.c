@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:29:44 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/08 15:12:27 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/10 16:57:15 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ void	strnstr_check(void)
 	const char	s3[] = "Hello World!";
 
 	ft_putstr("\n==========strnstr test===========\n");
-	ft_putstr("strnstr = ");
+	ft_putstr("strnstr\t\t= ");
 	ft_putstr(strnstr(s1, s2, 4));
-	ft_putstr("\nft_strnstr = ");
+	ft_putstr("\nft_strnstr\t= ");
 	ft_putstr(ft_strnstr(s1, s2, 4));
-	ft_putstr("\nstrnstr = ");
+	ft_putstr("\nstrnstr\t\t= ");
 	if (!strnstr(s3, s2, 10))
 		ft_putstr("(null)");
-	ft_putstr("\nft_strnstr = ");
+	ft_putstr("\nft_strnstr\t= ");
 	if (!ft_strnstr(s3, s2, 10))
 		ft_putstr("(null)");
 	ft_putstr("\n================================\n");
