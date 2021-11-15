@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 20:20:33 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/15 12:21:41 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/15 16:37:05 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,14 @@ void	m_funstions(char *f_name)
 			memset_check();
 	if (!(strcmp(f_name, "memcpy")))
 			memcpy_check();
+	if (!(strcmp(f_name, "memccpy")))
+			memccpy_check();
+	if (!(strcmp(f_name, "memmove")))
+			memmove_check();
+	if (!(strcmp(f_name, "memchr")))
+			memchr_check();
+	if (!(strcmp(f_name, "memcmp")))
+			memcmp_check();
 }
 
 void	s_funstions(char *f_name)
@@ -96,6 +104,10 @@ void	test_all(void)
 	print_result("memset", memset_test());
 	print_result("bzero", bzero_test());
 	print_result("memcpy", memcpy_test());
+	print_result("memccpy", memcpy_test());
+	print_result("memmove", memmove_test());
+	print_result("memchr", memmove_test());
+	print_result("memcmp", memmove_test());
 	print_result("strlen", strlen_test());
 	print_result("strdup", strdup_test());
 	print_result("strcpy", strcpy_test());
@@ -105,9 +117,9 @@ void	test_all(void)
 	print_result("strlcat", strlcat_test());
 	print_result("strchr", strchr_test());
 	print_result("strrchr", strrchr_test());
-	print_result("strcmp", strcmp_test());
 	print_result("strstr", strstr_test());
 	print_result("strnstr", strstr_test());
+	print_result("strcmp", strcmp_test());
 	print_result("strncmp", strncmp_test());
 	print_result("atoi", atoi_test());
 	print_result("isalpha", isalpha_test());
