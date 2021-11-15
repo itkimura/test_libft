@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 22:57:05 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/09 11:23:03 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/15 12:19:13 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ void	print_result(char *f_name, int result);
 
 void	memset_check(void);
 int		memset_test(void);
+void	bzero_check(void);
+int		bzero_test(void);
+void	memcpy_check(void);
+int		memcpy_test(void);
 void	strlen_check(void);
 int		strlen_test(void);
 void	strdup_check(void);
@@ -70,6 +74,8 @@ int		tolower_test(void);
 void	tolower_check(void);
 
 void	*ft_memset(void *b, int c, size_t len);
+void	ft_bzero(void *s, size_t n);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
 size_t	ft_strlen(const char *s);
 char	*ft_strdup(const char *s1);
 char	*ft_strcpy(char *dst, const char *src);

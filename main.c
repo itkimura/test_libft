@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 20:20:33 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/10 16:40:14 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/15 12:21:41 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,12 @@ void	print_result(char *f_name, int result)
 	}
 }
 
-void	a_funstions(char *f_name)
+void	a_b_funstions(char *f_name)
 {
 	if (!(strcmp(f_name, "atoi")))
 			atoi_check();
+	if (!(strcmp(f_name, "bzero")))
+			bzero_check();
 }
 
 void	i_funstions(char *f_name)
@@ -55,6 +57,8 @@ void	m_funstions(char *f_name)
 {
 	if (!(strcmp(f_name, "memset")))
 			memset_check();
+	if (!(strcmp(f_name, "memcpy")))
+			memcpy_check();
 }
 
 void	s_funstions(char *f_name)
@@ -90,6 +94,8 @@ void	s_funstions(char *f_name)
 void	test_all(void)
 {
 	print_result("memset", memset_test());
+	print_result("bzero", bzero_test());
+	print_result("memcpy", memcpy_test());
 	print_result("strlen", strlen_test());
 	print_result("strdup", strdup_test());
 	print_result("strcpy", strcpy_test());
@@ -134,8 +140,8 @@ int	main(int argc, char **argv)
 			test_all();
 		while (i < argc)
 		{
-			if (*argv[i] == 'a')
-				a_funstions(argv[i]);
+			if (*argv[i] == 'a' || *argv[i] == 'b')
+				a_b_funstions(argv[i]);
 			if (*argv[i] == 'i')
 				i_funstions(argv[i]);
 			if (*argv[i] == 'm')
