@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 22:57:05 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/17 16:53:45 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/17 23:13:03 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,16 @@
 # include <string.h>
 # include <stdio.h>
 # include <ctype.h>
+# include <string.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
 void	ft_putnbr(int nb);
 void	print_result(char *f_name, int result);
+void	submit_file(void);
 
 void	memset_check(void);
 int		memset_test(void);
@@ -82,6 +87,12 @@ void	tolower_check(void);
 int		tolower_test(void);
 
 void	memalloc_check(void);
+int		memalloc_test(void);
+void	memdel_check(void);
+int		memdel_test(void);
+void	strnew_check(void);
+int		strnew_test(void);
+
 
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
@@ -113,5 +124,7 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 
 void	*ft_memalloc(size_t size);
+void	ft_memdel(void **ap);
+char	*ft_strnew(size_t size);
 
 #endif

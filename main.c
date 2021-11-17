@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 20:20:33 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/17 16:38:01 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/17 23:10:38 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,7 @@ void	print_result(char *f_name, int result)
 			ft_putstr("\t:OK!\n");
 	}
 	else
-	{
-		ft_putstr("ft_");
-		ft_putstr(f_name);
 		ft_putstr("\t:Error!\n");
-	}
 }
 
 void	a_b_funstions(char *f_name)
@@ -69,6 +65,8 @@ void	m_funstions(char *f_name)
 			memcmp_check();
 	if (!(strcmp(f_name, "memalloc")))
 			memalloc_check();
+	if (!(strcmp(f_name, "memdel")))
+			memdel_check();
 }
 
 void	s_funstions(char *f_name)
@@ -99,6 +97,8 @@ void	s_funstions(char *f_name)
 		strcmp_check();
 	if (!(strcmp(f_name, "strncmp")))
 		strncmp_check();
+	if (!(strcmp(f_name, "strnew")))
+		strnew_check();
 }
 
 void	test_all(void)
@@ -132,6 +132,10 @@ void	test_all(void)
 	print_result("isprint", isdigit_test());
 	print_result("toupper", isdigit_test());
 	print_result("tolower", isdigit_test());
+	ft_putstr("\nPart 2 - Additional functions\n");
+	print_result("memalloc", memalloc_test());
+	print_result("memdel", memdel_test());
+	print_result("strnew", strnew_test());
 }
 
 void	t_funstions(char *f_name)
@@ -153,6 +157,8 @@ int	main(int argc, char **argv)
 	{
 		if (!(strcmp(argv[1], "all")))
 			test_all();
+		if (!(strcmp(argv[1], "submit")))
+			submit_file();
 		while (i < argc)
 		{
 			if (*argv[i] == 'a' || *argv[i] == 'b')
