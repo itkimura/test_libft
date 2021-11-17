@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 22:57:05 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/15 16:45:17 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/17 16:53:45 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,10 @@ void	isprint_check(void);
 int		isprint_test(void);
 void	toupper_check(void);
 int		toupper_test(void);
-int		tolower_test(void);
 void	tolower_check(void);
+int		tolower_test(void);
+
+void	memalloc_check(void);
 
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
@@ -92,9 +94,9 @@ size_t	ft_strlen(const char *s);
 char	*ft_strdup(const char *s1);
 char	*ft_strcpy(char *dst, const char *src);
 char	*ft_strncpy(char *dst, const char *src, size_t len);
-char	*ft_strcat(char *restrict s1, const char *restrict s2);
-char	*ft_strncat(char *restrict s1, const char *restrict s2, size_t n);
-size_t	ft_strlcat(char * restrict dst, const char * restrict src, size_t dstsize);
+char	*ft_strcat(char *s1, const char *s2);
+char	*ft_strncat(char *s1, const char *s2, size_t n);
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strstr(const char *haystack, const char *needle);
@@ -109,5 +111,7 @@ int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+
+void	*ft_memalloc(size_t size);
 
 #endif

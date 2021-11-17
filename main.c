@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 20:20:33 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/16 16:14:24 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/17 16:38:01 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ void	m_funstions(char *f_name)
 			memchr_check();
 	if (!(strcmp(f_name, "memcmp")))
 			memcmp_check();
+	if (!(strcmp(f_name, "memalloc")))
+			memalloc_check();
 }
 
 void	s_funstions(char *f_name)
@@ -101,6 +103,7 @@ void	s_funstions(char *f_name)
 
 void	test_all(void)
 {
+	ft_putstr("Part 1 - Libc functions\n");
 	print_result("memset", memset_test());
 	print_result("bzero", bzero_test());
 	print_result("memcpy", memcpy_test());
