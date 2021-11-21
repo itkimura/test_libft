@@ -6,13 +6,13 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 23:01:21 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/17 23:40:47 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/20 22:36:22 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test.h"
 
-void	file_exsit(char *f_name)
+void	file_exsit(char *f_name, int *n)
 {
 	int	fd;
 
@@ -22,6 +22,7 @@ void	file_exsit(char *f_name)
 	{
 		close(fd);
 		ft_putstr("\t:Submitted\n");
+		*n = *n + 1;
 	}
 	else
 	{
@@ -31,56 +32,69 @@ void	file_exsit(char *f_name)
 
 void	submit_file(void)
 {
-	file_exsit("../libft/ft_memset.c");
-	file_exsit("../libft/ft_bzero.c");
-	file_exsit("../libft/ft_memcpy.c");
-	file_exsit("../libft/ft_memccpy.c");
-	file_exsit("../libft/ft_memmove.c");
-	file_exsit("../libft/ft_memchr.c");
-	file_exsit("../libft/ft_memcmp.c");
-	file_exsit("../libft/ft_strlen.c");
-	file_exsit("../libft/ft_strdup.c");
-	file_exsit("../libft/ft_strcpy.c");
-	file_exsit("../libft/ft_strncpy.c");
-	file_exsit("../libft/ft_strcat.c");
-	file_exsit("../libft/ft_strncat.c");
-	file_exsit("../libft/ft_strlcat.c");
-	file_exsit("../libft/ft_strchr.c");
-	file_exsit("../libft/ft_strrchr.c");
-	file_exsit("../libft/ft_strstr.c");
-	file_exsit("../libft/ft_strnstr.c");
-	file_exsit("../libft/ft_atoi.c");
-	file_exsit("../libft/ft_isalpha.c");
-	file_exsit("../libft/ft_isdigit.c");
-	file_exsit("../libft/ft_isalnum.c");
-	file_exsit("../libft/ft_isascii.c");
-	file_exsit("../libft/ft_isprint.c");
-	file_exsit("../libft/ft_toupper.c");
-	file_exsit("../libft/ft_tolower.c");
-	file_exsit("../libft/ft_memalloc.c");
-	file_exsit("../libft/ft_memdel.c");
-	file_exsit("../libft/ft_strnew.c");
-	file_exsit("../libft/ft_strdel.c");
-	file_exsit("../libft/ft_strclr.c");
-	file_exsit("../libft/ft_striter.c");
-	file_exsit("../libft/ft_striteri.c");
-	file_exsit("../libft/ft_strmap.c");
-	file_exsit("../libft/ft_strmapi.c");
-	file_exsit("../libft/ft_strequ.c");
-	file_exsit("../libft/ft_strnequ.c");
-	file_exsit("../libft/ft_strsub.c");
-	file_exsit("../libft/ft_strjoin.c");
-	file_exsit("../libft/ft_strtrim.c");
-	file_exsit("../libft/ft_strsplit.c");
-	file_exsit("../libft/ft_itoa.c");
-	file_exsit("../libft/ft_putchar.c");
-	file_exsit("../libft/ft_putstr.c");
-	file_exsit("../libft/ft_putendl.c");
-	file_exsit("../libft/ft_putnbr.c");
-	file_exsit("../libft/ft_putchar_fd.c");
-	file_exsit("../libft/ft_putstr_fd.c");
-	file_exsit("../libft/ft_putendl_fd.c");
-	file_exsit("../libft/ft_putnbr_fd.c");
+	int	part1;
+	int	part2;
+
+	part1 = 0;
+	part2 = 0;
+
+	ft_putstr("Part 1 - Libc functions\n");
+	file_exsit("../libft/ft_memset.c", &part1);
+	file_exsit("../libft/ft_bzero.c", &part1);
+	file_exsit("../libft/ft_memcpy.c", &part1);
+	file_exsit("../libft/ft_memccpy.c", &part1);
+	file_exsit("../libft/ft_memmove.c", &part1);
+	file_exsit("../libft/ft_memchr.c", &part1);
+	file_exsit("../libft/ft_memcmp.c", &part1);
+	file_exsit("../libft/ft_strlen.c", &part1);
+	file_exsit("../libft/ft_strdup.c", &part1);
+	file_exsit("../libft/ft_strcpy.c", &part1);
+	file_exsit("../libft/ft_strncpy.c", &part1);
+	file_exsit("../libft/ft_strcat.c", &part1);
+	file_exsit("../libft/ft_strncat.c", &part1);
+	file_exsit("../libft/ft_strlcat.c", &part1);
+	file_exsit("../libft/ft_strchr.c", &part1);
+	file_exsit("../libft/ft_strrchr.c", &part1);
+	file_exsit("../libft/ft_strstr.c", &part1);
+	file_exsit("../libft/ft_strnstr.c", &part1);
+	file_exsit("../libft/ft_strcmp.c", &part1);
+	file_exsit("../libft/ft_strncmp.c", &part1);
+	file_exsit("../libft/ft_atoi.c", &part1);
+	file_exsit("../libft/ft_isalpha.c", &part1);
+	file_exsit("../libft/ft_isdigit.c", &part1);
+	file_exsit("../libft/ft_isalnum.c", &part1);
+	file_exsit("../libft/ft_isascii.c", &part1);
+	file_exsit("../libft/ft_isprint.c", &part1);
+	file_exsit("../libft/ft_toupper.c", &part1);
+	file_exsit("../libft/ft_tolower.c", &part1);
+	ft_putstr("\nPart 2 - Additional functions\n");
+	file_exsit("../libft/ft_memalloc.c", &part2);
+	file_exsit("../libft/ft_memdel.c", &part2);
+	file_exsit("../libft/ft_strnew.c", &part2);
+	file_exsit("../libft/ft_strdel.c", &part2);
+	file_exsit("../libft/ft_strclr.c", &part2);
+	file_exsit("../libft/ft_striter.c", &part2);
+	file_exsit("../libft/ft_striteri.c", &part2);
+	file_exsit("../libft/ft_strmap.c", &part2);
+	file_exsit("../libft/ft_strmapi.c", &part2);
+	file_exsit("../libft/ft_strequ.c", &part2);
+	file_exsit("../libft/ft_strnequ.c", &part2);
+	file_exsit("../libft/ft_strsub.c", &part2);
+	file_exsit("../libft/ft_strjoin.c", &part2);
+	file_exsit("../libft/ft_strtrim.c", &part2);
+	file_exsit("../libft/ft_strsplit.c", &part2);
+	file_exsit("../libft/ft_itoa.c", &part2);
+	file_exsit("../libft/ft_putchar.c", &part2);
+	file_exsit("../libft/ft_putstr.c", &part2);
+	file_exsit("../libft/ft_putendl.c", &part2);
+	file_exsit("../libft/ft_putnbr.c", &part2);
+	file_exsit("../libft/ft_putchar_fd.c", &part2);
+	file_exsit("../libft/ft_putstr_fd.c", &part2);
+	file_exsit("../libft/ft_putendl_fd.c", &part2);
+	file_exsit("../libft/ft_putnbr_fd.c", &part2);
+	printf("------------------------------------------\n");
+	printf("Part 1 - Libc functions\t\t-> %.f%%\n", ((float)part1 / 28) * 100);
+	printf("Part 2 - Additional functions\t-> %.f%%\n", ((float)part2 / 24) * 100);
 }
 
 
