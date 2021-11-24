@@ -6,25 +6,50 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 20:20:33 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/17 23:10:38 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/24 13:59:03 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test.h"
 
+void	print_line(char *f_name)
+{
+	int	i;
+	int	len;
+
+	i = 0;
+	len = 0;
+	if (f_name)
+	{
+		len = strlen(f_name) + 9;
+		printf("\n[ %s test ]", f_name);
+	}
+	else
+		printf("\n");
+	while (i + len < 60)
+	{
+		printf("=");
+		i++;
+	}
+	if (len)
+		printf("\n");
+	printf("\n");
+}
+
+
 void	print_result(char *f_name, int result)
 {
-	ft_putstr("ft_");
-	ft_putstr(f_name);
+	printf("ft_");
+	printf("%s", f_name);
 	if (result)
 	{
 		if(strlen(f_name) < 5 )
-			ft_putstr("\t\t:OK!\n");
+			printf("\t\t:OK!\n");
 		else
-			ft_putstr("\t:OK!\n");
+			printf("\t:OK!\n");
 	}
 	else
-		ft_putstr("\t:Error!\n");
+		printf("\t:Error!\n");
 }
 
 void	a_b_funstions(char *f_name)
@@ -103,7 +128,7 @@ void	s_funstions(char *f_name)
 
 void	test_all(void)
 {
-	ft_putstr("Part 1 - Libc functions\n");
+	printf("Part 1 - Libc functions\n");
 	print_result("memset", memset_test());
 	print_result("bzero", bzero_test());
 	print_result("memcpy", memcpy_test());
@@ -132,7 +157,7 @@ void	test_all(void)
 	print_result("isprint", isdigit_test());
 	print_result("toupper", isdigit_test());
 	print_result("tolower", isdigit_test());
-	ft_putstr("\nPart 2 - Additional functions\n");
+	printf("\nPart 2 - Additional functions\n");
 	print_result("memalloc", memalloc_test());
 	print_result("memdel", memdel_test());
 	print_result("strnew", strnew_test());
@@ -152,7 +177,7 @@ int	main(int argc, char **argv)
 
 	i = 1;
 	if (argc == 1)
-		ft_putstr("Please the enter function name\n");
+		printf("Please the enter function name\n");
 	else
 	{
 		if (!(strcmp(argv[1], "all")))

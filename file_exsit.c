@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 23:01:21 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/20 22:36:22 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/24 14:57:20 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,12 @@ void	submit_file(void)
 {
 	int	part1;
 	int	part2;
+	int	bonus;
 
 	part1 = 0;
 	part2 = 0;
-
-	ft_putstr("Part 1 - Libc functions\n");
+	bonus = 0;
+	print_line("Part 1 - Libc functions");
 	file_exsit("../libft/ft_memset.c", &part1);
 	file_exsit("../libft/ft_bzero.c", &part1);
 	file_exsit("../libft/ft_memcpy.c", &part1);
@@ -67,7 +68,7 @@ void	submit_file(void)
 	file_exsit("../libft/ft_isprint.c", &part1);
 	file_exsit("../libft/ft_toupper.c", &part1);
 	file_exsit("../libft/ft_tolower.c", &part1);
-	ft_putstr("\nPart 2 - Additional functions\n");
+	print_line("Part 2 - Additional functions");
 	file_exsit("../libft/ft_memalloc.c", &part2);
 	file_exsit("../libft/ft_memdel.c", &part2);
 	file_exsit("../libft/ft_strnew.c", &part2);
@@ -92,9 +93,17 @@ void	submit_file(void)
 	file_exsit("../libft/ft_putstr_fd.c", &part2);
 	file_exsit("../libft/ft_putendl_fd.c", &part2);
 	file_exsit("../libft/ft_putnbr_fd.c", &part2);
-	printf("------------------------------------------\n");
+	print_line("Bonus!");
+	file_exsit("../libft/ft_lstnew.c", &bonus);
+	file_exsit("../libft/ft_lstdelone.c", &bonus);
+	file_exsit("../libft/ft_lstdel.c", &bonus);
+	file_exsit("../libft/ft_lstadd.c", &bonus);
+	file_exsit("../libft/ft_lstiter.c", &bonus);
+	file_exsit("../libft/ft_lstmap.c", &bonus);
+	print_line(0);
 	printf("Part 1 - Libc functions\t\t-> %.f%%\n", ((float)part1 / 28) * 100);
 	printf("Part 2 - Additional functions\t-> %.f%%\n", ((float)part2 / 24) * 100);
+	printf("Bonus\t\t\t\t-> %.f%%\n", ((float)bonus / 6) * 100);
 }
 
 

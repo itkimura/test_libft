@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 12:14:40 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/15 14:05:33 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/24 14:37:07 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,16 @@ void	bzero_check(void)
 	char	s3[] = "Hello World!";
 	char	s4[] = "Hello World!";
 
-	ft_putstr("\n==========bzero test===========\n");
-	ft_putstr("s1\t\t= ");
-	ft_putstr(s1);
-	ft_putstr("\nbzero\t\t= ");
-	bzero(s1, 4);
-	ft_putstr(s1);
-	ft_putstr("\nft_bzero\t= ");
+	print_line("bzero");
+	printf("s1\t\t= %s\n", s1);
+	printf("bzero\t\t= %s\tlen = %lu\n", bzero(s1, 4), strlen(s1));
 	ft_bzero(s2, 4);
-	ft_putstr(s2);
-	ft_putstr("\ns2\t\t= ");
-	ft_putstr(s3);
-	ft_putstr("\nbzero\t\t= ");
-	bzero(s3, 5);
-	ft_putstr(s3);
-	ft_putstr("\nft_bzero\t= ");
+	printf("ft_bzero\t= %s\tlen = %lu\n", s2, strlen(s1));
+	printf("s2\t\t= %s\n", s2);
+	printf("bzero\t\t= %s\tlen = %lu\n", bzero(s3, 5), strlen(s3));
 	ft_bzero(s4, 5);
-	ft_putstr(s4);
-	ft_putstr("\n================================\n");
+	printf("ft_bzero\t= %s\tlen = %lu\n", s4, strlen(s4));
+	print_line(0);
 	print_result("bzero", bzero_test());
 }
 

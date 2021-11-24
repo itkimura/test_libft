@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 22:57:05 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/20 21:29:22 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/24 13:45:43 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 
+void	print_line(char *f_name);
 void	print_result(char *f_name, int result);
 void	submit_file(void);
 
