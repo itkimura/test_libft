@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 22:57:05 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/24 13:45:43 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/27 21:58:39 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,71 +25,74 @@
 
 void	print_line(char *f_name);
 void	print_result(char *f_name, int result);
+void	file_exsit(char *f_name, int *n);
+int		file_test(char *f_name);
+int		file_check(char *f_name);
 void	submit_file(void);
 
 void	memset_check(void);
-int		memset_test(void);
+void		memset_test(void);
 void	bzero_check(void);
-int		bzero_test(void);
+void		bzero_test(void);
 void	memcpy_check(void);
-int		memcpy_test(void);
+void		memcpy_test(void);
 void	memccpy_check(void);
-int		memccpy_test(void);
+void	memccpy_test(void);
 void	memmove_check(void);
-int		memmove_test(void);
+void		memmove_test(void);
 void	memchr_check(void);
-int		memchr_test(void);
+void		memchr_test(void);
 void	memcmp_check(void);
-int		memcmp_test(void);
+void		memcmp_test(void);
 void	strlen_check(void);
-int		strlen_test(void);
+void		strlen_test(void);
 void	strdup_check(void);
-int		strdup_test(void);
+void		strdup_test(void);
 void	strcpy_check(void);
-int		strcpy_test(void);
+void		strcpy_test(void);
 void	strncpy_check(void);
-int		strncpy_test(void);
+void		strncpy_test(void);
 void	strcat_check(void);
-int		strcat_test(void);
+void		strcat_test(void);
 void	strncat_check(void);
-int		strncat_test(void);
+void		strncat_test(void);
 void	strlcat_check(void);
-int		strlcat_test(void);
+void		strlcat_test(void);
 void	strchr_check(void);
-int		strchr_test(void);
+void		strchr_test(void);
 void	strrchr_check(void);
-int		strrchr_test(void);
+void		strrchr_test(void);
 void	strstr_check(void);
-int		strstr_test(void);
+void		strstr_test(void);
 void	strnstr_check(void);
-int		strnstr_test(void);
+void		strnstr_test(void);
 void	strcmp_check(void);
-int		strcmp_test(void);
+void		strcmp_test(void);
 void	strncmp_check(void);
-int		strncmp_test(void);
+void		strncmp_test(void);
 void	atoi_check(void);
-int		atoi_test(void);
+void		atoi_test(void);
 void	isalpha_check(void);
-int		isalpha_test(void);
+void		isalpha_test(void);
 void	isdigit_check(void);
-int		isdigit_test(void);
+void		isdigit_test(void);
 void	isalnum_check(void);
-int		isalnum_test(void);
+void		isalnum_test(void);
 void	isascii_check(void);
-int		isascii_test(void);
+void		isascii_test(void);
 void	isprint_check(void);
-int		isprint_test(void);
+void		isprint_test(void);
 void	toupper_check(void);
-int		toupper_test(void);
+void		toupper_test(void);
 void	tolower_check(void);
-int		tolower_test(void);
+void		tolower_test(void);
 
 void	memalloc_check(void);
-int		memalloc_test(void);
+void		memalloc_test(void);
 void	memdel_check(void);
-int		memdel_test(void);
+void		memdel_test(void);
 void	strnew_check(void);
-int		strnew_test(void);
+void		strnew_test(void);
 
 
 void	*ft_memset(void *b, int c, size_t len);

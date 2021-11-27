@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strncpy_test.c                                      :+:      :+:    :+:   */
+/*   strncpy_test.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:49:12 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/10 18:16:48 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/27 22:41:56 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,22 @@ void	strncpy_check(void)
 	char s2[20] = "Hello World!";
 	char d2[20] = "Hive Helsinki";
 
-	ft_putstr("\n==========strncpy test===========\n");
-	ft_putstr("d1\t\t= ");
-	ft_putstr(d1);
-	ft_putstr("\nstrncpy\t\t= ");
-	strncpy(d1, s1, 13);
-	ft_putstr(d1);
-	ft_putstr("\nd2\t\t= ");
-	ft_putstr(d2);
-	ft_strncpy(d2, s2, 13);
-	ft_putstr("\nft_strncpy\t= ");
-	ft_putstr(d2);
-	ft_putstr("\n================================\n");
-	print_result("strncpy", strncpy_test());
+	print_line("ft_strncpy");
+	if (file_check("ft_strncpy"))
+	{
+		printf("s1\t\t\t= %s\n", s1);
+		printf("d1\t\t\t= %s\n", d1);
+		printf("strncpy(d1, 13)\t\t= %s\n", strncpy(d1, s1, 13));
+		printf("s2\t\t\t= %s\n", s1);
+		printf("d2\t\t\t= %s\n", d1);
+		printf("ft_strncpy(d2, 13)\t= %s\n", ft_strncpy(d2, s2, 13));
+	}
+	else
+		printf("\x1b[33mFail\033[m\n");
+	print_line(0);
 }
 
-int		strncpy_test(void)
+void	strncpy_test(void)
 {
 	char s1[20] = "Hello World!";
 	char d1[20] = "Hive Helsink";
@@ -45,9 +45,17 @@ int		strncpy_test(void)
 	char s4[20] = "Hello World!";
 	char d4[20];
 
-	if (!(strcmp(strncpy(d1, s1, 6), ft_strncpy(d2, s2, 6)))
-	 && !(strcmp(strncpy(d3, s3, 15), ft_strncpy(d4, s4, 15))))
-		return (1);
+	if (file_test("ft_strncpy"))
+	{
+		if (!(strcmp(strncpy(d1, s1, 6), ft_strncpy(d2, s2, 6))))
+			printf("\x1b[36mOK\033[m ");
+		else
+			printf("\x1b[33mKO\033[m ");
+		if (!(strcmp(strncpy(d3, s3, 15), ft_strncpy(d4, s4, 15))))
+			printf("\x1b[36mOK\033[m\n");
+		else
+			printf("\x1b[33mKO\033[m\n");
+	}
 	else
-		return (0);
+		printf("\x1b[33mFail\033[m\n");
 }

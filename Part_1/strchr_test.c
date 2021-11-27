@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strchar_test.c                                     :+:      :+:    :+:   */
+/*   strchr_test.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 12:29:18 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/10 16:53:37 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/27 22:45:53 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,48 +19,49 @@ void	strchr_check(void)
 	int		c1 = 72; /* H */
 	int		c2 = 111; /* o */
 
-	ft_putstr("\n==========strchr test===========\n");
-	ft_putstr("s1\t\t= ");
-	ft_putstr(s1);
-	ft_putstr("\nc1\t\t= ");
-	ft_putchar(c1);
-	ft_putstr("\nstrchr\t\t= ");
-	ft_putstr(strchr(s1, c1));
-	ft_putstr("\nft_strchr\t= ");
-	ft_putstr(ft_strchr(s1, c1));
-	ft_putstr("\ns1\t\t= ");
-	ft_putstr(s1);
-	ft_putstr("\nc2\t\t= ");
-	ft_putchar(c2);
-	ft_putstr("\nstrchr\t\t= ");
-	if (!strchr(s1, c2))
-		ft_putstr("0");
-	ft_putstr("\nft_strchr\t= ");
-	if (!ft_strchr(s1, c2))
-		ft_putstr("0");
-	ft_putstr("\ns2\t\t= ");
-	ft_putstr(s2);
-	ft_putstr("\nc2\t\t= ");
-	ft_putchar(c2);
-	ft_putstr("\nstrchr\t\t= ");
-	ft_putstr(strchr(s2, c2));
-	ft_putstr("\nft_strchr\t= ");
-	ft_putstr(ft_strchr(s2, c2));
-	ft_putstr("\n================================\n");
-	print_result("strchr", strchr_test());
+	print_line("ft_strchr");
+	if (file_check("ft_strchr"))
+	{
+		printf("s1\t\t= %s\n", s1);
+		printf("c1\t\t= %c\n", c1);
+		printf("strchr\t\t= %s\n", strchr(s1, c1));
+		printf("ft_strchr\t= %s\n", ft_strchr(s1, c1));
+		printf("s1\t\t= %s\n", s1);
+		printf("c2\t\t= %c\n", c2);
+		printf("strchr\t\t= %s\n", strchr(s1, c2));
+		printf("ft_strchr\t= %s\n", ft_strchr(s1, c2));
+		printf("s2\t\t= %s\n",s2);
+		printf("c2\t\t= %c\n", c2);
+		printf("strchr\t\t= %s\n", strchr(s2, c2));
+		printf("ft_strchr\t= %s\n", ft_strchr(s2, c2));
+	}
+	else
+		printf("\x1b[33mFail\033[m\n");
+	print_line(0);
 }
 
-int	strchr_test(void)
+void	strchr_test(void)
 {
 	char	s1[] = "Hive Helsinki";
 	char	s2[] = "Hello World!";
 	int		c1 = 72; /* H */
 	int		c2 = 111; /* o */
 
-	if (!strcmp(strchr(s1, c1), ft_strchr(s1, c1)) &&
-		(!strchr(s1, c2) && !ft_strchr(s1, c2)) &&
-		!strcmp(strchr(s2, c2), ft_strchr(s2, c2)))
-		return (1);
+	if (file_test("ft_strchr"))
+	{
+		if (!strcmp(strchr(s1, c1), ft_strchr(s1, c1)))
+			printf("\x1b[36mOK\033[m ");
+		else
+			printf("\x1b[33mKO\033[m ");
+		if ((!strchr(s1, c2) && !ft_strchr(s1, c2)))
+			printf("\x1b[36mOK\033[m ");
+		else
+			printf("\x1b[33mKO\033[m ");
+		if (!strcmp(strchr(s2, c2), ft_strchr(s2, c2)))
+			printf("\x1b[36mOK\033[m\n");
+		else
+			printf("\x1b[33mKO\033[m\n");
+	}
 	else
-		return (0);
+		printf("\x1b[33mFail\033[m\n");
 }

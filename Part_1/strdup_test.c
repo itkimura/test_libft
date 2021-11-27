@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dtrdup_test.c                                      :+:      :+:    :+:   */
+/*   strdup_test.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:21:01 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/08 15:08:41 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/27 22:40:08 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,31 @@ void	strdup_check(void)
 	const char *s1 = "Hive Helsinki";
 	const char *s2 = "Hello World!";
 
-	ft_putstr("\n==========strdup test===========\n");
-	ft_putstr("strdup\t\t= ");
-	ft_putstr(strdup(s1));
-	ft_putstr("\nft_strdup\t= ");
-	ft_putstr(ft_strdup(s1));
-	ft_putstr("\nstrdup\t\t= ");
-	ft_putstr(strdup(s2));
-	ft_putstr("\nft_strdup\t= ");
-	ft_putstr(ft_strdup(s2));
-	ft_putstr("\n================================\n");
-	print_result("strdup", strdup_test());
+	print_line("ft_strdup");
+	if (file_check("ft_strdup"))
+	{
+		printf("strdup\t\t= %s\n", strdup(s1));
+		printf("ft_strdup\t= %s\n", ft_strdup(s1));
+		printf("strdup\t\t= %s\n", strdup(s2));
+		printf("ft_strdup\t= %s\n", ft_strdup(s2));
+	}
+	else
+		printf("\x1b[33mFail\033[m\n");
+	print_line(0);
 }
 
-int	strdup_test(void)
+void	strdup_test(void)
 {
 	const char *s1 = "Hive Helsinki";
 	const char *s2 = "Hello World!";
 
-	if(!(strcmp(strdup(s1), ft_strdup(s1))) && !(strcmp(strdup(s2), ft_strdup(s2))))
-		return (1);
+	if (file_test("ft_strdup"))
+	{
+		if(!(strcmp(strdup(s1), ft_strdup(s1))) && !(strcmp(strdup(s2), ft_strdup(s2))))
+			printf("\x1b[36mOK\033[m\n");
+		else
+			printf("\x1b[33mKO\033[m\n");
+	}
 	else
-		return (0);
+		printf("\x1b[33mFail\033[m\n");
 }

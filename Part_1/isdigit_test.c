@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 16:47:49 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/08 16:53:17 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/27 23:27:12 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,47 +19,56 @@ void	isdigit_check(void)
 	char c = '4';
 	char d = 'A';
 
-	ft_putstr("\n==========isdigit test===========\n");
-	ft_putstr("a = ");
-	ft_putchar(a);
-	ft_putstr("\nisdigit = ");
-	ft_putnbr(isdigit(a));
-	ft_putstr("\nft_isdigit = ");
-	ft_putnbr(ft_isdigit(a));
-	ft_putstr("\nb = ");
-	ft_putchar(b);
-	ft_putstr("\nisdigit = ");
-	ft_putnbr(isdigit(b));
-	ft_putstr("\nft_isdigit = ");
-	ft_putnbr(ft_isdigit(b));
-	ft_putstr("\nc = ");
-	ft_putchar(c);
-	ft_putstr("\nisdigit = ");
-	ft_putnbr(isdigit(c));
-	ft_putstr("\nft_isdigit = ");
-	ft_putnbr(ft_isdigit(c));
-	ft_putstr("\nd = ");
-	ft_putchar(d);
-	ft_putstr("\nisdigit = ");
-	ft_putnbr(isdigit(d));
-	ft_putstr("\nft_isdigit = ");
-	ft_putnbr(ft_isdigit(d));
-	ft_putstr("\n==================================\n");
-	print_result("isdigit", isdigit_test());
+	print_line("ft_isdigit");
+	if (file_check("ft_isdigit"))
+	{
+		printf("a\t\t= %c\n", a);
+		printf("isdigit\t\t= %d\n", isdigit(a));
+		printf("ft_isdigit\t= %d\n", ft_isdigit(a));
+		printf("----------------------------------\n");
+		printf("b\t\t= %c\n", b);
+		printf("isdigit\t\t= %d\n", isdigit(b));
+		printf("ft_isdigit\t= %d\n", ft_isdigit(b));
+		printf("----------------------------------\n");
+		printf("c\t\t= %c\n", c);
+		printf("isdigit\t\t= %d\n", isdigit(c));
+		printf("ft_isdigit\t= %d\n", ft_isdigit(c));
+		printf("----------------------------------\n");
+		printf("d\t\t= %c\n", d);
+		printf("isdigit\t\t= %d\n", isdigit(d));
+		printf("ft_isdigit\t= %d\n", ft_isdigit(d));
+	}
+	else
+		printf("\x1b[33mFail\033[m\n");
+	print_line(0);
 }
 
-int	isdigit_test(void)
+void	isdigit_test(void)
 {
 	char a = '1';
 	char b = '0';
 	char c = '4';
 	char d = 'A';
 
-	if(isdigit(a) == ft_isdigit(a) &&
-		isdigit(b) == ft_isdigit(b) &&
-		isdigit(c) == ft_isdigit(c) &&
-		isdigit(d) == ft_isdigit(d))
-		return (1);
+	if (file_test("ft_isdigit"))
+	{
+		if (isdigit(a) == ft_isdigit(a))
+			printf("\x1b[36mOK\033[m ");
+		else
+			printf("\x1b[33mKO\033[m ");
+		if (isdigit(b) == ft_isdigit(b))
+			printf("\x1b[36mOK\033[m ");
+		else
+			printf("\x1b[33mKO\033[m ");
+		if (isdigit(c) == ft_isdigit(c))
+			printf("\x1b[36mOK\033[m ");
+		else
+			printf("\x1b[33mKO\033[m ");
+		if (isdigit(d) == ft_isdigit(d))
+			printf("\x1b[36mOK\033[m\n");
+		else
+			printf("\x1b[33mKO\033[m\n");
+	}
 	else
-		return (0);
+		printf("\x1b[33mFail\033[m\n");
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memcopy_test.c                                     :+:      :+:    :+:   */
+/*   memcpy_test.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 11:57:48 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/15 12:09:59 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/27 22:32:36 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,41 +19,41 @@ void	memcpy_check(void)
 	char	*s3 = NULL;
 	char	*s4 = NULL;
 
-	ft_putstr("\n==========memcpy test===========\n");
-	ft_putstr("s1\t\t= ");
-	ft_putstr(s1);
-	ft_putstr("\ns2\t\t= ");
-	ft_putstr(s2);
-	ft_putstr("\nmemcpy\t\t= ");
-	ft_putstr(memcpy(s1, s2, 4));
-	ft_putstr("\nft_memcpy\t= ");
-	ft_putstr(ft_memcpy(s1, s2, 4));
-	ft_putstr("\ns3\t\t= ");
-	if (s3 == 0)
-		ft_putstr("null");
-	ft_putstr("\ns4\t\t= ");
-	if (s4 == 0)
-		ft_putstr("null");
-	ft_putstr("\nmemcpy\t\t= ");
-	if (memcpy(s3, s4, 5) == 0)
-		ft_putstr("null");
-	ft_putstr("\nft_memcpy\t= ");
-	if (ft_memcpy(s3, s4, 5) == 0)
-		ft_putstr("null");
-	ft_putstr("\n================================\n");
-	print_result("memcpy", memcpy_test());
+	print_line("ft_memcpy");
+	if (file_check("ft_memcpy"))
+	{
+		printf("s1\t\t= %s\n", s1);
+		printf("s2\t\t= %s\n", s2);
+		printf("memcpy\t\t= %s\n", (char *)memcpy(s1, s2, 4));
+		printf("ft_memcpy\t= %s\n", (char *)ft_memcpy(s1, s2, 4));
+		printf("s3\t\t= %s\n", s3);
+		printf("s4\t\t= %s\n", s4);
+		printf("memcpy\t\t= %s\n", (char *)memcpy(s3, s4, 5));
+		printf("ft_memcpy\t= %s\n", (char *)ft_memcpy(s3, s4, 5));
+	}
+	else
+		printf("\x1b[33mFail\033[m\n");
+	print_line(0);
 }
 
-int	memcpy_test(void)
+void	memcpy_test(void)
 {
 	char	s1[] = "Hive Helsinki";
 	char	s2[] = "Hello World!";
 	char	*s3 = NULL;
 	char	*s4 = NULL;
 
-	if (!strcmp(memcpy(s1, s2, 4), ft_memcpy(s1, s2, 4)) &&
-		(memcpy(s3, s4, 5) == 0 && ft_memcpy(s3, s4, 5) == 0))
-		return (1);
+	if (file_test("ft_memcpy"))
+	{
+		if (!strcmp(memcpy(s1, s2, 4), ft_memcpy(s1, s2, 4)))
+			printf("\x1b[36mOK\033[m ");
+		else
+			printf("\x1b[33mKO\033[m ");
+		if ((memcpy(s3, s4, 5) == 0 && ft_memcpy(s3, s4, 5) == 0))
+			printf("\x1b[36mOK\033[m\n");
+		else
+			printf("\x1b[33mKO\033[m\n");
+	}
 	else
-		return (0);
+		printf("\x1b[33mFail\033[m\n");
 }

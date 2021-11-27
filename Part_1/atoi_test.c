@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_a.c                                           :+:      :+:    :+:   */
+/*   atoi_test.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 15:21:40 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/16 16:13:49 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/27 23:05:40 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,41 +17,45 @@ void	atoi_check(void)
 	char	*s1;
 
 	s1 = "    123456";
-	ft_putstr("\n==========atoi test=============\n");
-	ft_putstr("atoi\t\t= ");
-	ft_putnbr(atoi(s1));
-	ft_putstr("\nft_atoi\t\t= ");
-	ft_putnbr(ft_atoi(s1));
-	s1 = "    -123456";
-	ft_putstr("\natoi\t\t= ");
-	ft_putnbr(atoi(s1));
-	ft_putstr("\nft_atoi\t\t= ");
-	ft_putnbr(ft_atoi(s1));
-	s1 = "    +123456";
-	ft_putstr("\natoi\t\t= ");
-	ft_putnbr(atoi(s1));
-	ft_putstr("\nft_atoi\t\t= ");
-	ft_putnbr(ft_atoi(s1));
-	s1 = "    -123 456";
-	ft_putstr("\natoi\t\t= ");
-	ft_putnbr(atoi(s1));
-	ft_putstr("\nft_atoi\t\t= ");
-	ft_putnbr(ft_atoi(s1));
-	s1 = "    -Hive123 456";
-	ft_putstr("\natoi\t\t= ");
-	ft_putnbr(atoi(s1));
-	ft_putstr("\nft_atoi\t\t= ");
-	ft_putnbr(ft_atoi(s1));
-	s1 = "    2147483648";
-	ft_putstr("\natoi\t\t= ");
-	ft_putnbr(atoi(s1));
-	ft_putstr("\nft_atoi\t\t= ");
-	ft_putnbr(ft_atoi(s1));
-	ft_putstr("\n================================\n");
-	print_result("atoi", atoi_test());
+	print_line("ft_atoi");
+	if (file_check("ft_atoi"))
+	{
+		printf("----------------------------------\n");
+		printf("s1\t\t= %s\n", s1);
+		printf("atoi\t\t= %d\n", atoi(s1));
+		printf("ft_atoi\t\t= %d\n", ft_atoi(s1));
+		printf("----------------------------------\n");
+		s1 = "    -123456";
+		printf("s1\t\t= %s\n", s1);
+		printf("atoi\t\t= %d\n", atoi(s1));
+		printf("ft_atoi\t\t= %d\n", ft_atoi(s1));
+		printf("----------------------------------\n");
+		s1 = "    +123456";
+		printf("s1\t\t= %s\n", s1);
+		printf("atoi\t\t= %d\n", atoi(s1));
+		printf("ft_atoi\t\t= %d\n", ft_atoi(s1));
+		printf("----------------------------------\n");
+		s1 = "    -123 456";
+		printf("s1\t\t= %s\n", s1);
+		printf("atoi\t\t= %d\n", atoi(s1));
+		printf("ft_atoi\t\t= %d\n", ft_atoi(s1));
+		printf("----------------------------------\n");
+		s1 = "    -Hive123 456";
+		printf("s1\t\t= %s\n", s1);
+		printf("atoi\t\t= %d\n", atoi(s1));
+		printf("ft_atoi\t\t= %d\n", ft_atoi(s1));
+		printf("----------------------------------\n");
+		s1 = "    2147483648";
+		printf("s1\t\t= %s\n", s1);
+		printf("atoi\t\t= %d\n", atoi(s1));
+		printf("ft_atoi\t\t= %d\n", ft_atoi(s1));
+	}
+	else
+		printf("\x1b[33mFail\033[m\n");
+	print_line(0);
 }
 
-int	atoi_test(void)
+void	atoi_test(void)
 {
 	char s1[] = "    123456";
 	char s2[] = "    -123456";
@@ -60,13 +64,33 @@ int	atoi_test(void)
 	char s5[] = "    -Hive123 456";
 	char s6[] = "    2147483648";
 
-	if (atoi(s1) == ft_atoi(s1) &&
-		atoi(s2) == ft_atoi(s2) &&
-		atoi(s3) == ft_atoi(s3) &&
-		atoi(s4) == ft_atoi(s4) &&
-		atoi(s5) == ft_atoi(s5) &&
-		atoi(s6) == ft_atoi(s6))
-		return (1);
+	if (file_test("ft_atoi"))
+	{
+		if (atoi(s1) == ft_atoi(s1))
+			printf("\x1b[36mOK\033[m ");
+		else
+			printf("\x1b[33mKO\033[m ");
+		if (atoi(s2) == ft_atoi(s2))
+			printf("\x1b[36mOK\033[m ");
+		else
+			printf("\x1b[33mKO\033[m ");
+		if (atoi(s3) == ft_atoi(s3))
+			printf("\x1b[36mOK\033[m ");
+		else
+			printf("\x1b[33mKO\033[m ");
+		if (atoi(s4) == ft_atoi(s4))
+			printf("\x1b[36mOK\033[m ");
+		else
+			printf("\x1b[33mKO\033[m ");
+		if (atoi(s5) == ft_atoi(s5))
+			printf("\x1b[36mOK\033[m ");
+		else
+			printf("\x1b[33mKO\033[m ");
+		if (atoi(s6) == ft_atoi(s6))
+			printf("\x1b[36mOK\033[m\n");
+		else
+			printf("\x1b[33mKO\033[m\n");
+	}
 	else
-		return (0);
+		printf("\x1b[33mFail\033[m\n");
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strcmp_test.c.c                                      :+:      :+:    :+:   */
+/*   strcmp_test.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:39:32 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/08 15:11:40 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/27 22:52:04 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,28 +19,32 @@ void	strcmp_check(void)
 
 	s1 = "Hello";
 	s2 = "Hello";
-	ft_putstr("\n==========strcmp test===========\n");
-	ft_putstr("strcmp\t\t= ");
-	ft_putnbr(strcmp(s1, s2));
-	ft_putstr("\nft_strcmp\t= ");
-	ft_putnbr(ft_strcmp(s1, s2));
-	s1 = "Hive";
-	s2 = "Hive Helsinki";
-	ft_putstr("\nstrcmp\t\t= ");
-	ft_putnbr(strcmp(s1, s2));
-	ft_putstr("\nft_strcmp\t= ");
-	ft_putnbr(ft_strcmp(s1, s2));
-	s1 = "422";
-	s2 = "42";
-	ft_putstr("\nstrcmp\t\t= ");
-	ft_putnbr(strcmp(s1, s2));
-	ft_putstr("\nft_strcmp\t= ");
-	ft_putnbr(ft_strcmp(s1, s2));
-	ft_putstr("\n================================\n");
-	print_result("strcmp", strcmp_test());
+	print_line("ft_strcmp");
+	if (file_check("ft_strcmp"))
+	{
+		printf("s1\t\t= %s\n", s1);
+		printf("s2\t\t= %s\n", s2);
+		printf("strcmp\t\t= %d\n", strcmp(s1, s2));
+		printf("ft_strcmp\t= %d\n", ft_strcmp(s1, s2));
+		s1 = "Hive";
+		s2 = "Hive Helsinki";
+		printf("s1\t\t= %s\n", s1);
+		printf("s2\t\t= %s\n", s2);
+		printf("strcmp\t\t= %d\n", strcmp(s1, s2));
+		printf("ft_strcmp\t= %d\n", ft_strcmp(s1, s2));
+		s1 = "422";
+		s2 = "42";
+		printf("s1\t\t= %s\n", s1);
+		printf("s2\t\t= %s\n", s2);
+		printf("strcmp\t\t= %d\n", strcmp(s1, s2));
+		printf("ft_strcmp\t= %d\n", ft_strcmp(s1, s2));
+	}
+	else
+		printf("\x1b[33mFail\033[m\n");
+	print_line(0);
 }
 
-int		strcmp_test(void)
+void		strcmp_test(void)
 {
 	char	s1[] = "Hello";
 	char	s2[] = "Hello";
@@ -49,10 +53,21 @@ int		strcmp_test(void)
 	char	s5[] = "422";
 	char	s6[] = "42";
 
-	if (strcmp(s1, s2) == ft_strcmp(s1, s2) &&
-		strcmp(s3, s4) == ft_strcmp(s3, s4) &&
-		strcmp(s5, s6) == ft_strcmp(s5, s6))
-	 	return (1);
+	if (file_test("ft_strcmp"))
+	{
+		if (strcmp(s1, s2) == ft_strcmp(s1, s2))
+			printf("\x1b[36mOK\033[m ");
+		else
+			printf("\x1b[33mKO\033[m ");
+		if (strcmp(s3, s4) == ft_strcmp(s3, s4))
+			printf("\x1b[36mOK\033[m ");
+		else
+			printf("\x1b[33mKO\033[m ");
+		if (strcmp(s5, s6) == ft_strcmp(s5, s6))
+			printf("\x1b[36mOK\033[m\n");
+		else
+			printf("\x1b[33mKO\033[m\n");
+	}
 	else
-		return (0);
+		printf("\x1b[33mFail\033[m\n");
 }

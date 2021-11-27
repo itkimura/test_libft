@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 16:37:39 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/15 17:04:52 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/27 22:33:56 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,32 +25,26 @@ void	memccpy_check(void)
 	int		c1 = 72; /* H */
 	int		c2 = 79; /* O */
 
-	ft_putstr("\n==========memccpy test===========\n");
-	ft_putstr("s1\t\t= ");
-	ft_putstr(s1);
-	ft_putstr("\ns2\t\t= ");
-	ft_putstr(s2);
-	ft_putstr("\nc1\t\t= ");
-	ft_putchar((char)c1);
-	ft_putstr("\nmemccpy\t\t= ");
-	ft_putstr(memccpy(s1, s2, c1, 4));
-	ft_putstr("\nft_memccpy\t= ");
-	ft_putstr(ft_memccpy(s3, s4, c1, 4));
-	ft_putstr("\ns5\t\t= ");
-	ft_putstr(s5);
-	ft_putstr("\ns6\t\t= ");
-	ft_putstr(s6);
-	ft_putstr("\nc2\t\t= ");
-	ft_putchar((char)c2);
-	ft_putstr("\nmemccpy\t\t= ");
-	ft_putstr(memccpy(s5, s6, c2, 5));
-	ft_putstr("\nft_memccpy\t= ");
-	ft_putstr(ft_memccpy(s7, s8, c2, 5));
-	ft_putstr("\n================================\n");
-	print_result("memccpy", memccpy_test());
+	print_line("ft_memccpy");
+	if (file_check("ft_memccpy"))
+	{
+		printf("s1\t\t= %s\n", s1);
+		printf("s2\t\t= %s\n", s2);
+		printf("c1\t\t= %c\n", (char)c1);
+		printf("memccpy\t\t= %s\n", (char *)memccpy(s1, s2, c1, 4));
+		printf("ft_memccpy\t= %s\n", (char *)ft_memccpy(s3, s4, c1, 4));
+		printf("s5\t\t= %s\n", s5);
+		printf("s6\t\t= %s\n", s6);
+		printf("c2\t\t= %c\n", (char)c2);
+		printf("memccpy\t\t= %s\n", (char *)memccpy(s5, s6, c2, 5));
+		printf("ft_memccpy\t= %s\n", (char *)ft_memccpy(s7, s8, c2, 5));
+	}
+	else
+		printf("\x1b[33mFail\033[m\n");
+	print_line(0);
 }
 
-int	memccpy_test(void)
+void	memccpy_test(void)
 {
 	char	s1[] = "Hive Helsinki";
 	char	s2[] = "Hello World!";
@@ -63,9 +57,18 @@ int	memccpy_test(void)
 	int		c1 = 72; /* H */
 	int		c2 = 79; /* O */
 
-	if (!strcmp(memccpy(s1, s2, c1, 4), ft_memccpy(s3, s4, c1, 4)) &&
-		!strcmp(memccpy(s5, s6, c2, 5), ft_memccpy(s7, s8, c2, 5)))
-		return (1);
+	if (file_test("ft_memccpy"))
+	{
+		if (!strcmp(memccpy(s1, s2, c1, 4), ft_memccpy(s3, s4, c1, 4)))
+			printf("\x1b[36mOK\033[m ");
+		else
+			printf("\x1b[33mKO\033[m ");
+	
+		if	(!strcmp(memccpy(s5, s6, c2, 5), ft_memccpy(s7, s8, c2, 5)))
+			printf("\x1b[36mOK\033[m\n");
+		else
+			printf("\x1b[33mKO\033[m\n");
+	}
 	else
-		return (0);
+		printf("\x1b[33mFail\033[m\n");
 }

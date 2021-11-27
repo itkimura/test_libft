@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 17:24:17 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/10 16:47:09 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/27 22:43:00 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,28 +22,24 @@ void	strcat_check(void)
 	char s7[20] = "Hello ";
 	char s8[] = "World!";
 
-	ft_putstr("\n==========strcat test===========\n");
-	ft_putstr("s1\t\t= ");
-	ft_putstr(s1);
-	ft_putstr("\ns2\t\t= ");
-	ft_putstr(s2);
-	ft_putstr("\nstrcat\t\t= ");
-	ft_putstr(strcat(s1, s2));
-	ft_putstr("\nft_strcat\t= ");
-	ft_putstr(ft_strcat(s5, s6));
-	ft_putstr("\ns3\t\t= ");
-	ft_putstr(s3);
-	ft_putstr("\ns4\t\t= ");
-	ft_putstr(s4);
-	ft_putstr("\nstrcat\t\t= ");
-	ft_putstr(strcat(s3, s4));
-	ft_putstr("\nft_strcat\t= ");
-	ft_putstr(ft_strcat(s7, s8));
-	ft_putstr("\n================================\n");
-	print_result("strcat", strcat_test());
+	print_line("ft_strcat");
+	if (file_check("ft_strcat"))
+	{
+		printf("s1\t\t= %s\n", s1);
+		printf("s2\t\t= %s\n", s2);
+		printf("strcat\t\t= %s\n", strcat(s1, s2));
+		printf("ft_strcat\t= %s\n", ft_strcat(s5, s6));
+		printf("s3\t\t= %s\n", s3);
+		printf("s4\t\t= %s\n", s4);
+		printf("strcat\t\t= %s\n", strcat(s3, s4));
+		printf("ft_strcat\t= %s\n", ft_strcat(s7, s8));
+	}
+	else
+		printf("\x1b[33mFail\033[m\n");
+	print_line(0);
 }
 
-int		strcat_test(void)
+void		strcat_test(void)
 {
 	char s1[20] = "Hive ";
 	char s2[] = "Helsinki";
@@ -54,9 +50,17 @@ int		strcat_test(void)
 	char s7[20] = "Hello ";
 	char s8[] = "World!";
 
-	if (!strcmp(strcat(s1, s2), ft_strcat(s5, s6)) &&
-		!strcmp(strcat(s3, s4), ft_strcat(s7, s8)))
-		return (1);
+	if (file_test("ft_strcat"))
+	{
+		if (!strcmp(strcat(s1, s2), ft_strcat(s5, s6)))
+			printf("\x1b[36mOK\033[m ");
+		else
+			printf("\x1b[33mKO\033[m ");
+		if (!strcmp(strcat(s3, s4), ft_strcat(s7, s8)))
+			printf("\x1b[36mOK\033[m\n");
+		else
+			printf("\x1b[33mKO\033[m\n");
+	}
 	else
-		return (0);
+		printf("\x1b[33mFail\033[m\n");
 }

@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 23:01:21 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/24 14:57:20 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/27 22:05:13 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,66 @@ void	file_exsit(char *f_name, int *n)
 	if (fd != -1)
 	{
 		close(fd);
-		ft_putstr("\t:Submitted\n");
+		ft_putstr("\t:\x1b[36mSubmitted\033[m\n");
 		*n = *n + 1;
 	}
 	else
 	{
-		ft_putstr("\t:No file\n");
+		ft_putstr("\t:\x1b[33mNo file\033[m\n");
+	}
+}
+
+int	file_test(char *f_name)
+{
+	int	fd;
+	char str[50] = "../libft/";
+	char c[] = ".c";
+
+	printf("%s", f_name);
+	if(strlen(f_name) < 8)
+		printf("\t\t:");
+	else
+		printf("\t:");
+	strcat(str, f_name);
+	strcat(str, c);
+	fd = open(str, O_RDONLY);
+	if (fd != -1)
+	{
+		close(fd);
+		printf("\x1b[36mSubmitted\033[m\tTest:");
+		return (1);
+	}
+	else
+	{
+		printf("\x1b[33mNo file\033[m\tTest:");
+		return (0);
+	}
+}
+
+int	file_check(char *f_name)
+{
+	int	fd;
+	char str[50] = "../libft/";
+	char c[] = ".c";
+
+	printf("%s", f_name);
+	if(strlen(f_name) < 8)
+		printf("\t\t:");
+	else
+		printf("\t:");
+	strcat(str, f_name);
+	strcat(str, c);
+	fd = open(str, O_RDONLY);
+	if (fd != -1)
+	{
+		close(fd);
+		printf("\x1b[36mSubmitted\033[m\n");
+		return (1);
+	}
+	else
+	{
+		printf("\x1b[33mNo file\033[m\tTest:");
+		return (0);
 	}
 }
 
@@ -101,9 +155,21 @@ void	submit_file(void)
 	file_exsit("../libft/ft_lstiter.c", &bonus);
 	file_exsit("../libft/ft_lstmap.c", &bonus);
 	print_line(0);
-	printf("Part 1 - Libc functions\t\t-> %.f%%\n", ((float)part1 / 28) * 100);
-	printf("Part 2 - Additional functions\t-> %.f%%\n", ((float)part2 / 24) * 100);
-	printf("Bonus\t\t\t\t-> %.f%%\n", ((float)bonus / 6) * 100);
+	printf("Part 1 - Libc functions\t\t-> ");
+	if (part1 / 28 == 1)
+ 		printf("\x1b[36m%.f%%\033[m\n", ((float)part1 / 28) * 100);
+	else
+ 		printf("\x1b[33m%.f%%\033[m\n", ((float)part1 / 28) * 100);
+	printf("Part 2 - Additional functions\t-> ");
+	if (part2 / 24 == 1)
+		printf("\x1b[36m%.f%%\033[m\n", ((float)part2 / 24) * 100);
+	else
+		printf("\x1b[33m%.f%%\033[m\n", ((float)part2 / 24) * 100);
+	printf("Bonus\t\t\t\t-> ");
+	if (bonus / 6 == 1)
+		printf("\x1b[36m%.f%%\033[m\n", ((float)bonus / 6) * 100);
+	else
+		printf("\x1b[33m%.f%%\033[m\n", ((float)bonus / 6) * 100);
 }
 
 

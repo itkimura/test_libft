@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 16:25:46 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/17 22:54:55 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/27 23:47:01 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,22 @@ void	memalloc_check(void)
 
 	s1 = 0;
 	s2 = 0;
-	printf("\n==========memalloc test===========\n");
-	printf("s1 = %s, address = %p\n", s1, s1);
-	s1 = ft_memalloc(5);
-	printf("memalloc = %s, address = %p\n", s1, s1);
-	printf("s2 = %s, address = %p\n", s2, s2);
-	s2 = ft_memalloc(5);
-	printf("memalloc = %s, address = %p", s2, s2);
-	printf("\n==================================\n");
-	print_result("memalloc", memalloc_test());
+	print_line("ft_memalloc");
+	if (file_check("ft_memalloc"))
+	{
+		printf("s1 = %s, address = %p\n", s1, s1);
+		s1 = ft_memalloc(5);
+		printf("memalloc = %s, address = %p\n", s1, s1);
+		printf("s2 = %s, address = %p\n", s2, s2);
+		s2 = ft_memalloc(5);
+		printf("memalloc = %s, address = %p\n", s2, s2);
+	}
+	else
+		printf("\x1b[33mFail\033[m\n");
+	print_line(0);
 }
 
-int		memalloc_test(void)
+void	memalloc_test(void)
 {
 	char	*s1;
 	char	*s2;
@@ -39,8 +43,13 @@ int		memalloc_test(void)
 	s2 = 0;
 	s1 = ft_memalloc(5);
 	s2 = ft_memalloc(5);
-	if (s1 && s2)
-		return (1);
+	if (file_test("ft_memalloc"))
+	{
+		if (s1 && s2)
+			printf("\x1b[36mOK\033[m\n");
+		else
+			printf("\x1b[33mKO\033[m\n");
+	}
 	else
-		return (0);
+		printf("\x1b[33mFail\033[m\n");
 }

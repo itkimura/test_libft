@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 20:20:33 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/24 13:59:03 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/27 22:29:58 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,11 @@ void	print_line(char *f_name)
 		len = strlen(f_name) + 9;
 		printf("\n[ %s test ]", f_name);
 	}
-	else
-		printf("\n");
 	while (i + len < 60)
 	{
 		printf("=");
 		i++;
 	}
-	if (len)
-		printf("\n");
 	printf("\n");
 }
 
@@ -129,38 +125,38 @@ void	s_funstions(char *f_name)
 void	test_all(void)
 {
 	printf("Part 1 - Libc functions\n");
-	print_result("memset", memset_test());
-	print_result("bzero", bzero_test());
-	print_result("memcpy", memcpy_test());
-	print_result("memccpy", memcpy_test());
-	print_result("memmove", memmove_test());
-	print_result("memchr", memmove_test());
-	print_result("memcmp", memmove_test());
-	print_result("strlen", strlen_test());
-	print_result("strdup", strdup_test());
-	print_result("strcpy", strcpy_test());
-	print_result("strncpy", strncpy_test());
-	print_result("strcat", strcat_test());
-	print_result("strncat", strncat_test());
-	print_result("strlcat", strlcat_test());
-	print_result("strchr", strchr_test());
-	print_result("strrchr", strrchr_test());
-	print_result("strstr", strstr_test());
-	print_result("strnstr", strstr_test());
-	print_result("strcmp", strcmp_test());
-	print_result("strncmp", strncmp_test());
-	print_result("atoi", atoi_test());
-	print_result("isalpha", isalpha_test());
-	print_result("isdigit", isdigit_test());
-	print_result("isalnum", isdigit_test());
-	print_result("isascii", isdigit_test());
-	print_result("isprint", isdigit_test());
-	print_result("toupper", isdigit_test());
-	print_result("tolower", isdigit_test());
+	memset_test();
+	bzero_test();
+	memcpy_test();
+	memccpy_test();
+	memmove_test();
+	memchr_test();
+	memcmp_test();
+	strlen_test();
+	strdup_test();
+	strcpy_test();
+	strncpy_test();
+	strcat_test();
+	strncat_test();
+	strlcat_test();
+	strchr_test();
+	strrchr_test();
+	strstr_test();
+	strnstr_test();
+	strcmp_test();
+	strncmp_test();
+	atoi_test();
+	isalpha_test();
+	isdigit_test();
+	isalnum_test();
+	isascii_test();
+	isprint_test();
+	toupper_test();
+	tolower_test();
 	printf("\nPart 2 - Additional functions\n");
-	print_result("memalloc", memalloc_test());
-	print_result("memdel", memdel_test());
-	print_result("strnew", strnew_test());
+	memalloc_test();
+	memdel_test();
+	strnew_test();
 }
 
 void	t_funstions(char *f_name)
@@ -171,19 +167,63 @@ void	t_funstions(char *f_name)
 			tolower_check();
 }
 
+void	check_all(void)
+{
+	memset_check();
+	bzero_check();
+	memcpy_check();
+	memccpy_check();
+	memmove_check();
+	memchr_check();
+	memcmp_check();
+	strlen_check();
+	strdup_check();
+	strcpy_check();
+	strncpy_check();
+	strcat_check();
+	strncat_check();
+	strlcat_check();
+	strchr_check();
+	strrchr_check();
+	strstr_check();
+	strnstr_check();
+	strcmp_check();
+	strncmp_check();
+	atoi_check();
+	isalpha_check();
+	isdigit_check();
+	isalnum_check();
+	isascii_check();
+	isprint_check();
+	toupper_check();
+	tolower_check();
+	memalloc_check();
+	memdel_check();
+	strnew_check();
+}
+
 int	main(int argc, char **argv)
 {
 	int	i;
 
 	i = 1;
 	if (argc == 1)
-		printf("Please the enter function name\n");
+	{
+		printf("\n[ Commands ]================================================\n");
+		printf("./test submit\t\t= Check the submission\n");
+		printf("./test all\t\t= Test all functions\n");
+		printf("./test [function name]\t= Test a function and display output\n");
+		printf("./test checkall\t= Test all function and display output\n");
+		print_line(0);
+	}
 	else
 	{
 		if (!(strcmp(argv[1], "all")))
 			test_all();
 		if (!(strcmp(argv[1], "submit")))
 			submit_file();
+		if (!(strcmp(argv[1], "checkall")))
+			check_all();
 		while (i < argc)
 		{
 			if (*argv[i] == 'a' || *argv[i] == 'b')
