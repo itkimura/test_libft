@@ -6,7 +6,7 @@
 /*   By: itkimura <itkimura@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 20:20:33 by itkimura          #+#    #+#             */
-/*   Updated: 2021/11/27 22:29:58 by itkimura         ###   ########.fr       */
+/*   Updated: 2021/11/29 17:08:34 by itkimura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,12 +209,11 @@ int	main(int argc, char **argv)
 	i = 1;
 	if (argc == 1)
 	{
-		printf("\n[ Commands ]================================================\n");
-		printf("./test submit\t\t= Check the submission\n");
-		printf("./test all\t\t= Test all functions\n");
-		printf("./test [function name]\t= Test a function and display output\n");
-		printf("./test checkall\t= Test all function and display output\n");
-		print_line(0);
+		printf("\nUsage :\n");
+		printf("\t./test submit\t\t= Check the submission\n");
+		printf("\t./test all\t\t= Test all functions\n");
+		printf("\t./test [function name]\t= Test a function and display output\n");
+		printf("\t./test checkall\t\t= Test all function and display output\n\n");
 	}
 	else
 	{
